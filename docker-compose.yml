@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend-microservice
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_NEWS_API_URL=http://news-service:3001
+      - REACT_APP_TEACHER_API_URL=http://teacher-service:3002
+      - REACT_APP_COURSE_API_URL=http://course-service:3003
+      - REACT_APP_PHD_TEACHER_API_URL=http://phd-teacher-service:3005
+      - REACT_APP_CLUB_API_URL=http://club-service:3004
+    depends_on:
+      - news-service
+      - teacher-service
+      - course-service
+      - phd-teacher-service
+      - club-service
+
+  news-service:
+    build: ./news-service
+    ports:
+      - "3001:3001"
+
+  teacher-service:
+    build: ./teacher-service
+    ports:
+      - "3002:3002"
+
+  course-service:
+    build: ./course-service
+    ports:
+      - "3003:3003"
+
+  club-service:
+    build: ./clubs-microservice
+    ports:
+      - "3004:3004"
+
+  phd-teacher-service:
+    build: ./Phd_teachers-microservices
+    ports:
+      - "3005:3005"
