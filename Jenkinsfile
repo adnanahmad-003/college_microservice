@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_REGISTRY = 'your-registry'
-        DOCKER_CREDENTIALS = 'docker-credentials-id'
+        DOCKER_REGISTRY = 'shirazdwd'
+        DOCKER_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_COMPOSE_VERSION = '2.21.0'
     }
     stages {

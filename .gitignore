@@ -1,5 +1,5 @@
 node_modules/
-.env
+
 .DS_Store
 npm-debug.log
 coverage/
@@ -8,7 +8,8 @@ dist/
 build/
 *.log
 .npm
-.env.local
-.env.development
-.env.test
-.env.production
+# .env.local
+# .env.development
+# .env.test
+# .env.production
+# .env
