@@ -1,10 +1,16 @@
 pipeline {
     agent any
+    
+    tools {
+        nodejs 'Node-18'
+    }
+    
     environment {
-        DOCKER_REGISTRY = 'shirazdwd'
-        DOCKER_CREDENTIALS = 'docker-hub-credentials'
+        DOCKER_REGISTRY = 'your-registry'
+        DOCKER_CREDENTIALS = 'docker-credentials-id'
         DOCKER_COMPOSE_VERSION = '2.21.0'
     }
+    
     stages {
         stage('Checkout') {
             steps {
@@ -15,19 +21,31 @@ pipeline {
         stage('Test') {
             parallel {
                 stage('Test Frontend') {
+                    agent {
+                        docker {
+                            image 'node:18-alpine'
+                            args '-v $HOME/.npm:/root/.npm'
+                        }
+                    }
                     steps {
                         dir('frontend-microservice') {
-                            sh 'npm install'
+                            sh 'npm ci'
                             sh 'npm test -- --watchAll=false'
                         }
                     }
                 }
                 stage('Test Backend Services') {
+                    agent {
+                        docker {
+                            image 'node:18-alpine'
+                            args '-v $HOME/.npm:/root/.npm'
+                        }
+                    }
                     steps {
                         script {
                             ['news-microservice', 'teacher-microservice', 'courses-microservice'].each { service ->
                                 dir(service) {
-                                    sh 'npm install'
+                                    sh 'npm ci'
                                     sh 'npm test'
                                 }
                             }
@@ -49,7 +67,7 @@ pipeline {
                 stage('Build Backend Services') {
                     steps {
                         script {
-                            def services = ['news', 'teacher', 'courses']
+                            def services = ['news', 'teacher', 'courses', 'phd-teacher', 'club']
                             services.each { service ->
                                 dir("${service}-microservice") {
                                     sh "docker build -t ${DOCKER_REGISTRY}/${service}:${BUILD_NUMBER} ."
@@ -70,6 +88,8 @@ pipeline {
                         docker push ${DOCKER_REGISTRY}/news:${BUILD_NUMBER}
                         docker push ${DOCKER_REGISTRY}/teacher:${BUILD_NUMBER}
                         docker push ${DOCKER_REGISTRY}/courses:${BUILD_NUMBER}
+                        docker push ${DOCKER_REGISTRY}/phd-teacher:${BUILD_NUMBER}
+                        docker push ${DOCKER_REGISTRY}/club:${BUILD_NUMBER}
                     '''
                 }
             }
@@ -77,16 +97,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                script {
-                    sh '''
-                        export FRONTEND_VERSION=${BUILD_NUMBER}
-                        export NEWS_VERSION=${BUILD_NUMBER}
-                        export TEACHER_VERSION=${BUILD_NUMBER}
-                        export COURSES_VERSION=${BUILD_NUMBER}
-                        docker-compose -f docker-compose.yml down
-                        docker-compose -f docker-compose.yml up -d
-                    '''
-                }
+                sh './deploy.sh ${BUILD_NUMBER}'
             }
         }
     }
