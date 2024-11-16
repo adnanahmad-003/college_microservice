@@ -29,8 +29,11 @@ pipeline {
                     }
                     steps {
                         dir('frontend-microservice') {
-                            sh 'mkdir -p /.npm && chmod 777 /.npm'
-                            sh 'npm ci'
+                            sh '''
+                                mkdir -p /.npm && chmod 777 /.npm
+                                mkdir -p /root/.npm && chmod 777 /root/.npm
+                            '''
+                            sh 'npm ci --no-audit'
                             sh 'CI=true npm test'
                         }
                     }
@@ -44,10 +47,13 @@ pipeline {
                     }
                     steps {
                         script {
-                            sh 'mkdir -p /.npm && chmod 777 /.npm'
+                            sh '''
+                                mkdir -p /.npm && chmod 777 /.npm
+                                mkdir -p /root/.npm && chmod 777 /root/.npm
+                            '''
                             ['news-microservice', 'teacher-microservice', 'courses-microservice'].each { service ->
                                 dir(service) {
-                                    sh 'npm ci'
+                                    sh 'npm ci --no-audit'
                                     sh 'npm test'
                                 }
                             }
