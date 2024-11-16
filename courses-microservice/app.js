@@ -8,18 +8,24 @@ app.get('/courses', (req, res) => {
     const { branch, semester } = req.query;
 
     if (branch && semester) {
-        const filteredCourses = courseData.filter(
-            course =>
-                course.branch.toLowerCase() === branch.toLowerCase() &&
-                course.semester == semester
+      
+        const selectedBranch = courseData.find(
+            course => course.branch.toLowerCase() === branch.toLowerCase()
         );
 
-        if (filteredCourses.length > 0) {
-            return res.json(filteredCourses);
+        if (selectedBranch) {
+            const courses = selectedBranch.semesters[semester];
+            if (courses) {
+                return res.json({ branch: selectedBranch.branch, semester, courses });
+            }
+            return res
+                .status(404)
+                .json({ message: `No courses found for semester ${semester} in branch ${branch}.` });
         }
-        return res.status(404).json({ message: "No courses found for the given criteria." });
+        return res.status(404).json({ message: `No branch found with name ${branch}.` });
     }
 
+   
     res.json(courseData);
 });
 
