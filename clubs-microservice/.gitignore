@@ -1,0 +1,42 @@
+# Node modules folder (contains installed dependencies)
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (contains sensitive information like API keys)
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Debugger and profiler output
+*.out
+*.pid
+*.seed
+
+# Coverage reports (e.g., for testing)
+coverage/
+
+# Package lock files (if you use yarn or npm)
+yarn.lock
+package-lock.json
