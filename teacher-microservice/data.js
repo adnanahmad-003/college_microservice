@@ -1,5 +1,57 @@
 module.exports = [
-    { id: 1, name: "Dr. A. Kumar", department: "Computer Science", email: "akumar@iiitdwd.ac.in" },
-    { id: 2, name: "Dr. S. Mehta", department: "Electronics", email: "smehta@iiitdwd.ac.in" },
-    { id: 3, name: "Dr. R. Sharma", department: "Mathematics", email: "rsharma@iiitdwd.ac.in" }
-];
+    // Electronics and Communication Engineering
+    { id: 1, name: "Prof. Ambarish Kulkarni", department: "Electronics and Communication Engineering", email: "ambarishkulkarni@swin.edu.au" },
+    { id: 2, name: "Dr. Anand J Bariya", department: "Electronics and Communication Engineering", email: "abariya@alumni.stanford.edu" },
+    { id: 3, name: "Dr. Chinmayananda A", department: "Electronics and Communication Engineering", email: "chinmay@iiitdwd.ac.in" },
+    { id: 4, name: "Dr. Deepak K T", department: "Electronics and Communication Engineering", email: "deepak@iiitdwd.ac.in" },
+    { id: 5, name: "Dr. Pankaj Kumar", department: "Electronics and Communication Engineering", email: "iitdhn.pankaj@gmail.com" },
+    { id: 6, name: "Prof. Israel Cohen", department: "Electronics and Communication Engineering", email: "icohen@ee.technion.ac.il" },
+    { id: 7, name: "Dr. Jagadeesha R B", department: "Electronics and Communication Engineering", email: "Jagadeesha@iiitdwd.ac.in" },
+    { id: 8, name: "Dr. Jagadish D N", department: "Electronics and Communication Engineering", email: "jagadishdn@iiitdwd.ac.in" },
+    { id: 9, name: "Karthik Sankaran", department: "Electronics and Communication Engineering", email: "sankaran.karthik@gmail.com" },
+    { id: 10, name: "Dr. Nataraj K S", department: "Electronics and Communication Engineering", email: "nataraj@iiitdwd.ac.in" },
+    { id: 11, name: "Dr. Prakash Pawar", department: "Electronics and Communication Engineering", email: "Prakashpawar@iiitdwd.ac.in" },
+    { id: 12, name: "Dr. Rajesh Kumar", department: "Electronics and Communication Engineering", email: "rajeshk@iiitdwd.ac.in" },
+    { id: 13, name: "Dr. Rajib Sharma", department: "Electronics and Communication Engineering", email: "rajibd2k@iiitdwd.ac.in" },
+    { id: 14, name: "Dr. Sibasankar Padhy", department: "Electronics and Communication Engineering", email: "sibasankar@iiitdwd.ac.in" },
+    { id: 15, name: "Dr. Somen Bhattacharjee", department: "Electronics and Communication Engineering", email: "somen@iiitdwd.ac.in" },
+
+    // Computer Science & Engineering
+    { id: 16, name: "Dr. Abdul Wahid", department: "Computer Science & Engineering", email: "abdulwahid@iiitdwd.ac.in" },
+    { id: 17, name: "Dr. Animesh Roy", department: "Computer Science & Engineering", email: "animeshroy@iiitdwd.ac.in" },
+    { id: 18, name: "Dr. Channappa Akki", department: "Computer Science & Engineering", email: "channappa@iiitdwd.ac.in" },
+    { id: 19, name: "Dr. Dibyajyoti Guha", department: "Computer Science & Engineering", email: "dibyajyoti@iiitdwd.ac.in" },
+    { id: 20, name: "Dr. Girish G N", department: "Computer Science & Engineering", email: "girishgn@iiitdwd.ac.in" },
+    { id: 21, name: "Dr. Krishnendu Ghosh", department: "Computer Science & Engineering", email: "krishnendu@iiitdwd.ac.in" },
+    { id: 22, name: "Dr. Malay Kumar", department: "Computer Science & Engineering", email: "malaykumar@iiitdwd.ac.in" },
+    { id: 23, name: "Dr. Pavan Kumar C", department: "Computer Science & Engineering", email: "pavankumar@iiitdwd.ac.in" },
+    { id: 24, name: "Dr. Prabhu Prasad B M", department: "Computer Science & Engineering", email: "prabhup@iiitdwd.ac.in" },
+    { id: 25, name: "Dr. Pramod Yelmewad", department: "Computer Science & Engineering", email: "pramodyelmewad@iiitdwd.ac.in" },
+    { id: 26, name: "Prof. Rajesh Vasa", department: "Computer Science & Engineering", email: "" },
+    { id: 27, name: "Dr. Sadhvi Manerikar", department: "Computer Science & Engineering", email: "sadhvimanerikar@iiitdwd.ac.in" },
+    { id: 28, name: "Dr. Shrinivas Kulkarni", department: "Computer Science & Engineering", email: "shrinivaskulkarni@iiitdwd.ac.in" },
+    { id: 29, name: "Dr. Sunil C K", department: "Computer Science & Engineering", email: "sunilck@iiitdwd.ac.in" },
+    { id: 30, name: "Dr. Sunil Kumar P V", department: "Computer Science & Engineering", email: "sunilkumar@iiitdwd.ac.in" },
+    { id: 31, name: "Dr. Suvadip Hazra", department: "Computer Science & Engineering", email: "suvadiphazra@iiitdwd.ac.in" },
+    { id: 32, name: "Dr. Vivekraj V K", department: "Computer Science & Engineering", email: "vivekrajvk@iiitdwd.ac.in" },
+
+    // Data Science and Artificial Intelligence
+    { id: 33, name: "Dr. Animesh Chaturvedi", department: "Data Science and Artificial Intelligence", email: "animeshchaturvedi@iiitdwd.ac.in" },
+    { id: 34, name: "Prof. Girish Dhanakshirur", department: "Data Science and Artificial Intelligence", email: "" },
+    { id: 35, name: "Dr. Manjunath K V", department: "Data Science and Artificial Intelligence", email: "manjunath@iiitdwd.ac.in" },
+    { id: 36, name: "Prof. Nixon Patel", department: "Data Science and Artificial Intelligence", email: "" },
+    { id: 37, name: "Dr. Rajendra Hegadi", department: "Data Science and Artificial Intelligence", email: "rajendrahegadi@iiitdwd.ac.in" },
+    { id: 38, name: "Dr. Ramesh Athe", department: "Data Science and Artificial Intelligence", email: "rameshathe@iiitdwd.ac.in" },
+    { id: 39, name: "Prof. S R Mahadeva Prasanna", department: "Data Science and Artificial Intelligence", email: "srmahadevaprasanna@iiitdwd.ac.in" },
+    { id: 40, name: "Dr. Shirshendu Layek", department: "Data Science and Artificial Intelligence", email: "shirshendulayek@iiitdwd.ac.in" },
+    { id: 41, name: "Dr. Siddharth R", department: "Data Science and Artificial Intelligence", email: "siddharth@iiitdwd.ac.in" },
+    { id: 42, name: "Dr. Sunil Saumya", department: "Data Science and Artificial Intelligence", email: "sunilsaumya@iiitdwd.ac.in" },
+    { id: 43, name: "Dr. Utkarsh Khaire", department: "Data Science and Artificial Intelligence", email: "utkarshkhaire@iiitdwd.ac.in" },
+
+    // Department of Arts, Science, and Design
+    { id: 44, name: "Dr. Anand P. Barangi", department: "Department of Arts, Science, and Design", email: "anandbarangi@iiitdwd.ac.in" },
+    { id: 45, name: "Dr. Anushree Kini", department: "Department of Arts, Science, and Design", email: "anushreekini@iiitdwd.ac.in" },
+    { id: 46, name: "Dr. Aswath Babu H", department: "Department of Arts, Science, and Design", email: "aswathbabu@iiitdwd.ac.in" },
+    { id: 47, name: "Dr. Chandrika Kamath", department: "Department of Arts, Science, and Design", email: "chandrikakamath@iiitdwd.ac.in" },
+
+]
