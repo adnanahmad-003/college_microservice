@@ -3,7 +3,7 @@ set -e
 
 DOCKER_REGISTRY=${DOCKER_REGISTRY:-"shirazdwd"}
 BUILD_NUMBER=${1:-"latest"}
-SERVICES=("frontend" "news" "teacher" "courses")
+SERVICES=("frontend" "news" "teacher" "courses" "phd-teacher" "club")
 
 echo "Starting deployment process..."
 

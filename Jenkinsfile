@@ -24,13 +24,14 @@ pipeline {
                     agent {
                         docker {
                             image 'node:18-alpine'
-                            args '-v $HOME/.npm:/root/.npm'
+                            args '-v $HOME/.npm:/root/.npm -u root'
                         }
                     }
                     steps {
                         dir('frontend-microservice') {
+                            sh 'mkdir -p /.npm && chmod 777 /.npm'
                             sh 'npm ci'
-                            sh 'npm test -- --watchAll=false'
+                            sh 'CI=true npm test'
                         }
                     }
                 }
@@ -38,11 +39,12 @@ pipeline {
                     agent {
                         docker {
                             image 'node:18-alpine'
-                            args '-v $HOME/.npm:/root/.npm'
+                            args '-v $HOME/.npm:/root/.npm -u root'
                         }
                     }
                     steps {
                         script {
+                            sh 'mkdir -p /.npm && chmod 777 /.npm'
                             ['news-microservice', 'teacher-microservice', 'courses-microservice'].each { service ->
                                 dir(service) {
                                     sh 'npm ci'
